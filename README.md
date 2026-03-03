@@ -1,14 +1,14 @@
 # design-direction
 
-A [Claude Code](https://claude.ai/code) skill that helps you explore design microdecisions on your existing codebase — without leaving your editor.
+A [Claude Code](https://claude.ai/code) skill that helps you explore design microdecisions on your existing codebase, without leaving your editor.
 
-When you're not sure whether your chart should use teal or amber, whether your dashboard needs more whitespace, or whether that font is really working — this skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
+When you're not sure whether your chart should use teal or amber, whether your dashboard needs more whitespace, or whether that font is really working: this skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
 
 ---
 
 ## What it does
 
-Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview — functional charts, real fonts, actual CSS — so you can compare at a glance and make a confident call.
+Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (functional charts, real fonts, actual CSS) so you can compare at a glance and make a confident call.
 
 **Supports:**
 - Colors and color palettes
@@ -45,7 +45,7 @@ That's it. No npm install, no config files.
 Open Claude Code in your project directory and run:
 
 ```
-/design-direction "I don't love the bar chart colors — show me options"
+/design-direction "I don't love the bar chart colors, show me options"
 ```
 
 ```
@@ -60,7 +60,7 @@ Open Claude Code in your project directory and run:
 /design-direction "the primary button color feels off"
 ```
 
-A browser window will open showing your **current design** plus **Options A, B, C, and D** — each with a functional visual preview, a short rationale, and pros/cons. Pick one (or ask for a variation), and Claude edits your source files.
+A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Pick one (or ask for a variation), and Claude edits your source files.
 
 ---
 
@@ -78,7 +78,7 @@ The skill runs a 7-phase workflow:
 | **6. Open** | Opens the preview in your browser |
 | **7. Apply** | Edits your source files surgically for the option you choose |
 
-Changes are precise — only the specific design values are touched, not surrounding logic or structure.
+Changes are precise: only the specific design values are touched, not surrounding logic or structure.
 
 ---
 
@@ -101,7 +101,7 @@ The preview shows cards like this:
 └──────────────────────┘  └──────────────────────┘
 ```
 
-Charts use Chart.js, fonts load from Google Fonts, and layouts use real CSS — so what you see is close to what you'll get.
+Charts use Chart.js, fonts load from Google Fonts, and layouts use real CSS, so what you see is close to what you'll get.
 
 ---
 
