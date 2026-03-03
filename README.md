@@ -10,7 +10,7 @@ Whenever you have a design instinct you can't quite articulate, or a vague feeli
 
 Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (real fonts, actual CSS, functional components) so you can compare at a glance and make a confident call.
 
-**Ask about anything visual:**
+**Ask about any design question:**
 - Colors, palettes, and theming
 - Typography and font pairings
 - Spacing, density, and whitespace
@@ -21,6 +21,12 @@ Design decisions are hard to evaluate in the abstract. You want to *see* the opt
 - Dark mode and contrast
 - Data visualization
 - Mood, tone, and overall aesthetic
+- How a form should flow
+- Whether a modal or inline edit feels better
+- How to handle an empty state
+- What a hover or focus state should do
+- How to signal a destructive action
+- Whether a feature needs a confirmation step
 - ...or just say "something feels off" and let it explore
 
 **Works with:** React, Next.js, Vue, Svelte, vanilla HTML
