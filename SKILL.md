@@ -164,7 +164,7 @@ Write a single self-contained HTML file to:
   <header>
     <h1>Design Direction</h1>
     <p class="question">"[INSERT USER'S EXACT QUESTION HERE]"</p>
-    <p class="instruction">Browse the options below. When you've decided, tell Claude: <strong>"I'll go with Option A"</strong> (or B, C, D, or "keep current")</p>
+    <p class="instruction">Browse the options below. Tell Claude: <strong>"I'll go with Option A"</strong> (or B, C, D) · <strong>"Keep current"</strong> · <strong>"Give me more choices"</strong></p>
   </header>
 
   <main class="options-grid">
@@ -211,7 +211,7 @@ Each of the 5 cards must follow this structure:
   </div>
 
   <div class="card-footer">
-    <code class="tell-claude">Tell Claude: "I'll go with [Option A / Option B / etc.]"</code>
+    <code class="tell-claude">Tell Claude: "I'll go with [Option A / Option B / etc.]" · or "Give me more choices"</code>
   </div>
 </article>
 ```
@@ -449,6 +449,7 @@ Then tell the user:
 > - **"I'll go with Option A"** (or B, C, D)
 > - **"Keep the current one"**
 > - **"Option B but [modification]"** — I'll apply your tweak on top
+> - **"Give me more choices"** — I'll generate 4 more options and add them to the preview
 >
 > I'll apply the changes to your source files."
 
@@ -468,9 +469,29 @@ Map natural language to an option:
 - "B" / "option b" / "the second one" → `option-b`
 - "C" / "option c" / "the third one" → `option-c`
 - "D" / "option d" / "the fourth one" → `option-d`
+- Any letter E–Z / "option e" etc. → the corresponding option from a previous "more choices" batch
 - "option 1" / "option 2" etc. → treat number as letter (1→A, 2→B, 3→C, 4→D)
+- "more" / "more choices" / "more options" / "show more" / "give me more" / "more alternatives" → trigger the **More Choices** flow below
 
 Note any modifier: "Option B **but make it darker**" — apply Option B, then apply the modifier.
+
+### Step 7a-alt — More Choices Flow
+
+When the user asks for more choices:
+
+1. **Read** the existing `.design-direction-preview.html`
+2. **Find the last option letter used** by scanning for `class="option-[letter]"` — e.g. if the last card has `option-d`, the next batch starts at E
+3. **Generate 4 new directions** that are meaningfully different from every option already shown (do not repeat ideas)
+4. **Assign the next 4 letters** (first batch beyond A–D uses E, F, G, H; next uses I, J, K, L; etc.)
+5. **Build 4 new option cards** using the same HTML card structure as Phase 5
+6. **Append a `<style>` block** before `</body>` with CSS for the new letter classes, using these label colors:
+   - option-e: `#ea580c` · option-f: `#db2777` · option-g: `#0d9488` · option-h: `#4338ca`
+   - option-i: `#d97706` · option-j: `#9333ea` · option-k: `#65a30d` · option-l: `#0284c7`
+   - (continue cycling through distinctive colors for further batches)
+7. **Insert the 4 new cards** into `<main class="options-grid">` after the last existing card
+8. **Rewrite the full HTML file** with both the appended styles and new cards
+9. **Open the preview**: `open .design-direction-preview.html`
+10. Tell the user: *"Added Options [E–H] to the preview — [total] options now showing. Same drill: tell me which one you want."*
 
 ### Step 7b — Handle "Keep Current"
 
