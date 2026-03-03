@@ -58,31 +58,35 @@ That's it. No npm install, no config files.
 Open Claude Code in your project directory and run:
 
 ```
-/design-direction "this page feels really heavy, help me lighten it up"
+/design-direction "something is off with this page"
 ```
 
 ```
-/design-direction "I'm not loving the typography on the landing page"
+/design-direction "the dashboard looks too corporate"
 ```
 
 ```
-/design-direction "explore color options for the sidebar"
+/design-direction "explore font options for the landing page"
 ```
 
 ```
-/design-direction "the spacing on these cards feels off"
+/design-direction "I want the hero to have more personality"
 ```
 
 ```
-/design-direction "I want a moodier feel for the hero section"
+/design-direction "should this confirmation be a modal or inline?"
 ```
 
 ```
-/design-direction "these buttons don't feel right, show me alternatives"
+/design-direction "the primary button isn't standing out enough"
 ```
 
 ```
-/design-direction "the color palette feels dated"
+/design-direction "tighten up the spacing on the settings page"
+```
+
+```
+/design-direction "switch the sidebar to a darker color scheme"
 ```
 
 A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Pick one (or ask for a variation), and Claude edits your source files.
