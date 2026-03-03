@@ -2,7 +2,7 @@
 
 A [Claude Code](https://claude.ai/code) skill that helps you explore design microdecisions on your existing codebase, without leaving your editor.
 
-When you're not sure whether a color feels right, whether a layout needs breathing room, or whether that font is really working: this skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
+Whenever you have a design instinct you can't quite articulate, or a vague feeling that something isn't working: ask it. This skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
 
 ---
 
@@ -10,11 +10,18 @@ When you're not sure whether a color feels right, whether a layout needs breathi
 
 Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (real fonts, actual CSS, functional components) so you can compare at a glance and make a confident call.
 
-**Supports:**
-- Colors and color palettes
+**Ask about anything visual:**
+- Colors, palettes, and theming
 - Typography and font pairings
+- Spacing, density, and whitespace
 - Component and page layouts
+- Button and form styles
+- Navigation and sidebar design
+- Card and list treatments
+- Dark mode and contrast
 - Data visualization
+- Mood, tone, and overall aesthetic
+- ...or just say "something feels off" and let it explore
 
 **Works with:** React, Next.js, Vue, Svelte, vanilla HTML
 
