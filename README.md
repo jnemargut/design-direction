@@ -58,10 +58,6 @@ That's it. No npm install, no config files.
 Open Claude Code in your project directory and run:
 
 ```
-/design-direction "something is off with this page"
-```
-
-```
 /design-direction "the dashboard looks too corporate"
 ```
 
