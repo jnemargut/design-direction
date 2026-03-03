@@ -2,19 +2,19 @@
 
 A [Claude Code](https://claude.ai/code) skill that helps you explore design microdecisions on your existing codebase, without leaving your editor.
 
-When you're not sure whether your chart should use teal or amber, whether your dashboard needs more whitespace, or whether that font is really working: this skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
+When you're not sure whether a color feels right, whether a layout needs breathing room, or whether that font is really working: this skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
 
 ---
 
 ## What it does
 
-Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (functional charts, real fonts, actual CSS) so you can compare at a glance and make a confident call.
+Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (real fonts, actual CSS, functional components) so you can compare at a glance and make a confident call.
 
 **Supports:**
 - Colors and color palettes
 - Typography and font pairings
-- Data visualization (bar charts, line charts, etc.)
 - Component and page layouts
+- Data visualization
 
 **Works with:** React, Next.js, Vue, Svelte, vanilla HTML
 
@@ -45,19 +45,31 @@ That's it. No npm install, no config files.
 Open Claude Code in your project directory and run:
 
 ```
-/design-direction "I don't love the bar chart colors, show me options"
+/design-direction "this page feels really heavy, help me lighten it up"
 ```
 
 ```
-/design-direction "explore font options for the dashboard"
+/design-direction "I'm not loving the typography on the landing page"
 ```
 
 ```
-/design-direction "this layout feels cluttered, what are my options?"
+/design-direction "explore color options for the sidebar"
 ```
 
 ```
-/design-direction "the primary button color feels off"
+/design-direction "the spacing on these cards feels off"
+```
+
+```
+/design-direction "I want a moodier feel for the hero section"
+```
+
+```
+/design-direction "these buttons don't feel right, show me alternatives"
+```
+
+```
+/design-direction "the color palette feels dated"
 ```
 
 A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Pick one (or ask for a variation), and Claude edits your source files.
@@ -95,13 +107,13 @@ The preview shows cards like this:
 ┌──────────────────────┐  ┌──────────────────────┐
 │  Option A            │  │  Option B            │
 │  Ocean Blue          │  │  Warm Coral          │
-│  [live chart/font]   │  │  [live chart/font]   │
+│  [live preview]      │  │  [live preview]      │
 │  + Calm, professional│  │  + Energetic, warm   │
 │  - Can feel cold     │  │  - Assertive         │
 └──────────────────────┘  └──────────────────────┘
 ```
 
-Charts use Chart.js, fonts load from Google Fonts, and layouts use real CSS, so what you see is close to what you'll get.
+Fonts load from Google Fonts, layouts use real CSS, and components render functionally, so what you see is close to what you'll get.
 
 ---
 
