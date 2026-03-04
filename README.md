@@ -85,7 +85,11 @@ Open Claude Code in your project directory and run:
 /design-direction "switch the sidebar to a darker color scheme"
 ```
 
-A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Pick one (or ask for a variation), and Claude edits your source files.
+A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Then:
+
+- **"I'll go with Option B"** — Claude edits your source files
+- **"Option C but make it warmer"** — Claude applies the option with your tweak
+- **"Give me more choices"** — Claude generates 4 more options (E, F, G, H) and adds them to the same preview. Keep going as many rounds as you need.
 
 ---
 
