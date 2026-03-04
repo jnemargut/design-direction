@@ -1,41 +1,18 @@
 # design-direction
 
-A [Claude Code](https://claude.ai/code) skill that helps you explore design microdecisions on your existing codebase, without leaving your editor.
+A [Claude Code](https://claude.ai/code) skill that helps you explore design decisions on your existing codebase, without leaving your editor.
 
-Whenever you have a design instinct you can't quite articulate, or a vague feeling that something isn't working: ask it. This skill opens a browser preview showing your current design alongside 4 live, functional alternatives. You pick a direction, and Claude applies the change surgically to your source files.
+<p align="center">
+  <img src="demo.gif" alt="design-direction demo: exploring sidebar color options on a Next.js dashboard" width="800">
+</p>
 
----
-
-## What it does
-
-Design decisions are hard to evaluate in the abstract. You want to *see* the options, not imagine them. `design-direction` generates a real HTML preview (real fonts, actual CSS, functional components) so you can compare at a glance and make a confident call.
-
-**Ask about any design question:**
-- Colors, palettes, and theming
-- Typography and font pairings
-- Spacing, density, and whitespace
-- Component and page layouts
-- Button and form styles
-- Navigation and sidebar design
-- Card and list treatments
-- Dark mode and contrast
-- Data visualization
-- Mood, tone, and overall aesthetic
-- How a form should flow
-- Whether a modal or inline edit feels better
-- How to handle an empty state
-- What a hover or focus state should do
-- How to signal a destructive action
-- Whether a feature needs a confirmation step
-- ...or just say "something feels off" and let it explore
-
-**Works with:** React, Next.js, Vue, Svelte, vanilla HTML
+Ask any design question. The skill reads your code, generates a browser preview showing your current design alongside 4 functional alternatives, and applies the one you pick.
 
 ---
 
 ## Installation
 
-Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) to be installed.
+Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview).
 
 ```bash
 mkdir -p ~/.claude/skills/design-direction
@@ -49,88 +26,57 @@ curl -o ~/.claude/skills/design-direction/detect-stack.sh \
 chmod +x ~/.claude/skills/design-direction/detect-stack.sh
 ```
 
-That's it. No npm install, no config files.
+No npm install, no config files.
 
 ---
 
 ## Usage
 
-Open Claude Code in your project directory and run:
+Open Claude Code in any web project and run:
 
 ```
-/design-direction "the dashboard looks too corporate"
+/design-direction "the sidebar color is too bland"
 ```
+
+A browser preview opens showing your **current design** plus **Options A, B, C, and D** with live renders, rationale, and pros/cons. Then tell Claude what you want:
+
+- **"Go with Option A"** — applies the changes to your source files
+- **"Option C but darker"** — applies with your modification
+- **"Give me more choices"** — adds 4 more options (E, F, G, H) to the preview. Keep going as many rounds as you want.
+
+### More examples
 
 ```
 /design-direction "explore font options for the landing page"
-```
-
-```
-/design-direction "I want the hero to have more personality"
-```
-
-```
-/design-direction "should this confirmation be a modal or inline?"
-```
-
-```
-/design-direction "the primary button isn't standing out enough"
-```
-
-```
+/design-direction "the dashboard looks too corporate"
 /design-direction "tighten up the spacing on the settings page"
-```
-
-```
+/design-direction "should this confirmation be a modal or inline?"
+/design-direction "the primary button isn't standing out enough"
+/design-direction "I want the hero to have more personality"
 /design-direction "switch the sidebar to a darker color scheme"
 ```
 
-A browser window will open showing your **current design** plus **Options A, B, C, and D**, each with a functional visual preview, a short rationale, and pros/cons. Then:
+### Ask about any design question
 
-- **"I'll go with Option B"** — Claude edits your source files
-- **"Option C but make it warmer"** — Claude applies the option with your tweak
-- **"Give me more choices"** — Claude generates 4 more options (E, F, G, H) and adds them to the same preview. Keep going as many rounds as you need.
+Colors, typography, spacing, layouts, button styles, navigation, cards, dark mode, data visualization, interaction patterns, empty states, hover states, destructive actions, confirmation flows, mood and tone, or anything else.
+
+**Works with:** React, Next.js, Vue, Svelte, vanilla HTML
 
 ---
 
 ## How it works
 
-The skill runs a 7-phase workflow:
-
 | Phase | What happens |
 |-------|-------------|
 | **1. Clarify** | Parses your question; asks one follow-up if needed |
-| **2. Detect stack** | Identifies React, Vue, Svelte, Next.js, or vanilla HTML |
+| **2. Detect stack** | Identifies your framework (React, Vue, Svelte, Next.js, vanilla HTML) |
 | **3. Find the code** | Searches your codebase for the relevant component or styles |
-| **4. Generate options** | Creates 4 distinct design directions (e.g. warm, cool, neutral, bold) |
-| **5. Preview** | Writes `.design-direction-preview.html` with functional renders |
+| **4. Generate options** | Creates 4 distinct design directions |
+| **5. Preview** | Writes a self-contained HTML preview with functional renders |
 | **6. Open** | Opens the preview in your browser |
 | **7. Apply** | Edits your source files surgically for the option you choose |
 
 Changes are precise: only the specific design values are touched, not surrounding logic or structure.
-
----
-
-## Example output
-
-The preview shows cards like this:
-
-```
-┌─────────────────────────────────────────────────┐
-│  CURRENT                                        │
-│  Your existing design, rendered live            │
-└─────────────────────────────────────────────────┘
-
-┌──────────────────────┐  ┌──────────────────────┐
-│  Option A            │  │  Option B            │
-│  Ocean Blue          │  │  Warm Coral          │
-│  [live preview]      │  │  [live preview]      │
-│  + Calm, professional│  │  + Energetic, warm   │
-│  - Can feel cold     │  │  - Assertive         │
-└──────────────────────┘  └──────────────────────┘
-```
-
-Fonts load from Google Fonts, layouts use real CSS, and components render functionally, so what you see is close to what you'll get.
 
 ---
 
