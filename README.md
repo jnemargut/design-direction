@@ -1,6 +1,6 @@
 # design-direction
 
-A [Claude Code](https://claude.ai/code) skill that helps you explore design decisions on your existing codebase, without leaving your editor.
+An AI coding assistant skill that helps you explore design decisions on your existing codebase, without leaving your editor.
 
 <p align="center">
   <img src="demo.gif" alt="design-direction demo: exploring sidebar color options on a Next.js dashboard" width="800">
@@ -12,7 +12,7 @@ Ask any design question. The skill reads your code, generates a browser preview 
 
 ## Installation
 
-Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview).
+Requires an AI coding assistant that supports custom skills (e.g. [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)).
 
 ```bash
 mkdir -p ~/.claude/skills/design-direction
@@ -32,13 +32,13 @@ No npm install, no config files.
 
 ## Usage
 
-Open Claude Code in any web project and run:
+Open your AI coding assistant in any web project and run:
 
 ```
 /design-direction "the sidebar color is too bland"
 ```
 
-A browser preview opens showing your **current design** plus **Options A, B, C, and D** with live renders, rationale, and pros/cons. Then tell Claude what you want:
+A browser preview opens showing your **current design** plus **Options A, B, C, and D** with live renders, rationale, and pros/cons. Then tell the assistant what you want:
 
 - **"Go with Option A"** — applies the changes to your source files
 - **"Option C but darker"** — applies with your modification
