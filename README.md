@@ -82,4 +82,4 @@ Changes are precise: only the specific design values are touched, not surroundin
 
 ## License
 
-AGPL-3.0
+MIT
